@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+<style>
+     .container{
+            float: left;
+            display: inline-block;
+            position: relative;
+        }
+        @keyframes blink-caret { 50% { background-color: transparent; } }
+        span{
+            animation:blink-caret 1s step-end infinite;
+            width: 3px;
+            height: 20px;
+            background-color: #000;
+            float: left;
+            position: absolute;
+            right: -10px;
+        }
+</style>
+<body>
+  <div class="container"></div>  
+</body>
+
+<script>
+    var s = 'Welcome to LoVueAn';
+    var con = $('.container');
+    var index = 0;
+    var length = s.length;
+    var tId = null;
+ 
+    function start(){
+        con.text('');
+        con.append('<span></span>');
+        tId=setInterval(function(){
+            con.append(s.charAt(index));
+            if(index++ === length){
+                clearInterval(tId);
+                index = 0;
+
+                setTimeout(()=>{//打完所有字后几秒后间隔下一轮
+                  start();
+                },1500)
+                
+
+            }
+
+        },400);
+    }
+ 
+    start();
+</script>
+</html>

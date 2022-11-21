@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://www.jianguook.com/static/js/jquery-1.7.2.min.js"></script>
+    <!-- 封装好的js地理文件 -->
+    <!-- <script src="https://apis.map.qq.com/tools/geolocation/min?key=ZNCBZ-WEWCW-MAARR-RGNLU-K72DZ-HKFG4&referer=287660953wyy"></script> -->
+    <title>city</title>
+</head>
+<body>
+    
+</body>
+<script>
+    $(function(){
+        var mykey='ZNCBZ-WEWCW-MAARR-RGNLU-K72DZ-HKFG4';
+        var ref='287660953wyy'
+
+        function loadMap() {
+            console.log('2');
+        var url = `https://apis.map.qq.com/tools/geolocation/min?key=${mykey}&referer=${ref}&callback=initMap`; // 成功回调为initMap方法
+        var jsapi = document.createElement('script');
+            jsapi.charset = 'utf-8';
+            jsapi.src = url;
+            document.head.appendChild(jsapi);
+        };
+        
+        loadMap();
+
+        console.log('1');
+        window.initMap = function () {
+            console.log('?');
+        var geolocation = new qq.maps.Geolocation(mykey);
+        geolocation.getLocation(function success(position) {
+            console.log(position,'position');
+            $scope.position = position;
+        }, function error(result) {
+            console.log('获取定位失败', JSON.stringify(result));
+        }, {
+                timeout: 20000, // 默认值为10s;
+                failTipFlag: true
+        });
+
+        }
+
+
+
+        
+
+    })
+</script>
+</html>

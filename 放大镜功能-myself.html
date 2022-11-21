@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://www.jianguook.com/static/js/jquery-1.7.2.min.js"></script>
+
+</head>
+<style>
+    .small{
+        width: 600px;
+        height: 400px;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+    }
+    .small>img{
+        width: 100%;
+        height: 100%;
+    }
+    .zfx{
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        display: none;
+        top: -15px;
+        background: rgba(255,0,0,.1);
+        cursor: move;
+    }
+
+    .big{
+        width: 600px;
+        height: 400px;
+        margin-left: 20px;
+        border: 1px solid rosybrown;
+        display: none;
+        position: absolute;
+        overflow: hidden;
+    }
+    
+</style>
+<body>
+    <div class="small">
+        <img src="./images/chanp.jpg" alt="小图">
+        <p class="zfx"></p>
+    </div>
+    <div class="big">
+        <img src="./images/chanp.jpg" alt="大图">
+    </div>
+</body>
+<script>
+    $(function(){
+        $('.small').mousemove(function(e){
+        //   console.log('鼠标移进',$('.zfx'))
+          $('.zfx').show();
+          //1.获取鼠标相对于small这个区域的坐标点,并减去zfx的width的一半才能使鼠标一直在zfx中间的位置
+            let x = e.pageX - $(this).offset().left;
+            let y = e.pageY - $(this).offset().top;
+            x= x- $('.zfx').outerWidth()/2;
+            y =y-$('.zfx').outerHeight()/2
+            
+                // 水平方向最大值
+                let maxX = $(this).innerWidth() - $('.zfx').innerWidth();
+                //垂直向最大值
+                let maxY = $(this).innerHeight() -$('.zfx').innerHeight();
+                    if(x<0){
+                    //相当于超出左侧,超出左侧时,拉回
+                        x=0;
+                    }
+                //zfx超出右侧时拉回
+                    if(x>maxX){
+                        x = maxX;
+                    }
+                //顶部超出
+                    if(y<0){
+                        y=0;
+                    }
+                //底部超出
+                    if(y>maxY){
+                        y = maxY;
+                    }
+                $('.zfx').css({'transform':`translate(${x}px,${y}px)`})
+
+          //2.计算放大比例
+                let a = $('.big>img').innerWidth()-$('.big').innerWidth();
+                let b = $('.big>img').innerHeight()-$('.big').innerHeight();
+                let bigScrollx = x/maxX*a; 
+                let bigScrolly = y/maxY*b ;
+                $('.big').scrollLeft(bigScrollx).scrollTop(bigScrolly).css({'display':'inline-block'});
+                
+        })
+
+        $('.small').mouseleave(function(){
+            // console.log('鼠标移出')
+            $('.big').css({'display':'none'});
+            $('.zfx').hide();
+        })
+
+    })
+</script>
+</html>

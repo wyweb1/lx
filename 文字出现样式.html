@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字出现方式</title>
+    <script src="http://www.jianguook.com/static/js/jquery-1.7.2.min.js"></script>
+    <style>
+        p{
+            position: relative;
+            text-align: center;
+        }
+        p:nth-child(1){
+            /* transform: translateX(-100px); */
+            left: -100px;
+            transform: scale(0.7);
+            opacity: 0;
+        }
+        div{
+            width: 140px;
+            height: 44PX;
+            background-color: burlywood;
+        }
+        div>a{
+            width: 22px;
+            height: 44px;
+            /* display:none ; */
+            display: inline-block;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+    <p class="a">素质教育</p>
+    <p class="b">特色养生</p>
+    <p class="c">金牌辅导</p>
+
+    <div>
+        <a href="">ggg</a>
+    </div>
+</body>
+<script>
+$('.a').animate({'left':'0','opacity':'1'},500,function(){
+    $(this).css({'transform':'scale(1)',"transition":"all 0.4s"})
+})
+
+$('div').hover(function(){
+    
+    // $(this).children('a').animate({display:'inline-block',width:'140px',transition:'all 0.5s linear'},1000);
+    $('div>a').animate({width:'200px'})
+    // $(this).children('a').show();
+})
+$('div').mouseleave(function(){
+    $(this).children('a').css({'width':'0px'}).hide();
+})
+</script>
+</html>

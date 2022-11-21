@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阴影</title>
+</head>
+<body>
+    <!-- 
+        <feOffset>元素是用于创建阴影效果。我们的想法是采取一个SVG图形（图像或元素）并移动它在xy平面上一点儿。
+第一个例子偏移一个矩形（带<feOffset>），然后混合偏移图像顶部（含<feBlend>）：
+     -->
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+            <filter id="f1" x="0" y="0" width="200%" height="200%">
+                <feoffset result="offout" in="SourceGraphic" dx="20" dy="200"/>
+                <feBlend in="SourceGraphic" in2="offOut" mode="normal" />
+            </filter>
+        </defs>
+
+        <rect width="90" height="90" stroke="green" stroke-width="3" 
+        fill="yellow" filter="url(#f1)" />
+
+    </svg>
+
+    <!-- 
+        <filter>元素id属性定义一个滤镜的唯一名称
+        <rect>元素的滤镜属性用来把元素链接到"f1"滤镜
+     -->
+
+
+     <p>模糊的偏移值</p>
+     <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+          <filter id="f1" x="0" y="0" width="200%" height="200%">
+            <feOffset result="offOut" in="SourceGraphic" dx="20" dy="20" />
+            <feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" />
+            <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+          </filter>
+        </defs>
+        <rect width="90" height="90" stroke="green" stroke-width="3"
+        fill="yellow" filter="url(#f1)" />
+      </svg>
+
+      <p>黑色的阴影</p>
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+          <filter id="f1" x="0" y="0" width="200%" height="200%">
+            <feOffset result="offOut" in="SourceAlpha" dx="20" dy="20" />
+            <feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" />
+            <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+          </filter>
+        </defs>
+        <rect width="90" height="90" stroke="green" stroke-width="3"
+        fill="yellow" filter="url(#f1)" />
+      </svg>
+      <!-- <feColorMatrix>过滤器是用来转换偏移的图像使之更接近黑色的颜色。 '0.2'矩阵的三个值都获取乘以红色，绿色和蓝色通道。降低其值带来的颜色至黑色（黑色为0） -->
+</body>
+</html>

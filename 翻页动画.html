@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://www.jianguook.com/static/js/jquery-1.7.2.min.js"></script>
+
+    <title>Document</title>
+</head>
+<style>
+    .tab{
+        display: flex;
+        width: 400px;
+        margin: 0 auto;
+        justify-content: start;
+
+    }
+    .tab>div{
+        cursor: pointer;
+        width: 100px;
+        height:30px;
+        line-height: 30px;
+        background-color: burlywood;
+    }
+
+    .contant_box{
+        margin: 0 auto;
+        width: 600px;
+        height: 600px;
+        background-color: lightsalmon;
+        position: relative;
+    }
+    .contant_box p{
+        position: relative;
+    }
+</style>
+<body>
+    <div class="tab">
+        <div>项目1</div>
+        <div>项目2</div>
+        <div>项目3</div>
+    </div>
+    <div class="contant_box">
+        <p>翻页测试这是项目一</p>
+    </div>
+</body>
+<script>
+    
+    $(function(){
+        var data = ['翻页测试这是项目一','翻页测试这是项目二','翻页测试这是项目三'];
+        $('.tab>div').click(function(){
+            let index = $(this).index();
+            $('.contant_box p').animate({'opacity':'0','left':'-60px','transition':'all 0.1s'},function(){
+                $(this).html(data[index]).animate({'opacity':'0','left':'60px','transition':'all 0.1s'},function(){
+                    $(this).animate({'opacity':'1','left':'0','transition':'all 0.1s'})
+                });
+        })
+            })
+           
+    })
+</script>
+</html> 

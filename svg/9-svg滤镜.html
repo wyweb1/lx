@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滤镜</title>
+</head>
+<body>
+    <!-- svg滤镜用来增加对svg图形的特殊效果 -->
+    <!-- SVG可用的滤镜是：
+            feBlend - 与图像相结合的滤镜
+            feColorMatrix - 用于彩色滤光片转换
+            feComponentTransfer
+            feComposite 混合而成的
+            feConvolveMatrix  卷积矩阵
+            feDiffuseLighting 漫射照明
+            feDisplacementMap  置换
+            feFlood
+            feGaussianBlur  高斯模糊
+            feImage
+            feMerge  合并
+            feMorphology
+            feOffset - 过滤阴影
+            feSpecularLighting  镜面照明
+            feTile
+            feTurbulence
+            feDistantLight - 用于照明过滤
+            fePointLight - 用于照明过滤
+            feSpotLight - 用于照明过滤
+    Remark 除此之外，您可以在每个 SVG 元素上使用多个滤镜！ -->
+
+    <p>高斯模糊</p>
+    <!-- 注意： Internet Explorer和Safari不支持SVG滤镜！ -->
+    <!--所有互联网的SVG滤镜定义在<defs>元素中。<defs>元素定义短并含有特殊元素（如滤镜）定义。
+<filter>标签用来定义SVG滤镜。<filter>标签使用必需的id属性来定义向图形应用哪个滤镜？ -->
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+          <filter id="f1" x="0" y="0">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="15" />
+          </filter>
+        </defs>
+        <rect width="90" height="90" stroke="green" stroke-width="3"
+        fill="yellow" filter="url(#f1)" />
+    </svg>
+    <!-- <filter>元素id属性定义一个滤镜的唯一名称
+        <feGaussianBlur>元素定义模糊效果
+        in="SourceGraphic"这个部分定义了由整个图像创建效果
+        stdDeviation属性定义模糊量
+        <rect>元素的滤镜属性用来把元素链接到"f1"滤镜 -->
+</body>
+</html>

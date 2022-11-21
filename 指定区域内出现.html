@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://www.jianguook.com/static/js/jquery-1.7.2.min.js"></script>
+
+</head>
+<style>
+    div{
+        margin: 0 auto;
+        width:1200px;
+        height: 600px;
+        /* position: relative; */
+    }
+    .box1{
+        background-color: pink;
+    }
+    .box2{
+        background-color: palevioletred;
+    }
+    .box3{
+        background-color: gold;
+    }
+    .box4{
+        background-color: green;
+    }
+    p,h1{padding: 0;margin: 0;text-align: center;width: 100%;line-height: 40px;}
+    p{   
+        font-size: 36px;
+        padding-top: 40px;
+        transition:all 1s ;
+        opacity: 0;
+    }
+    h1{
+        padding-top: 40px;
+        transition:all 1s ;
+        opacity: 0;
+        }
+  
+</style>
+<body>
+    <div class="box1"></div>
+    <div class="box2">
+        <p>1item</p>
+        <p>2item</p>
+        <p>3item</p>
+    </div>
+    <div class="box3">
+        <h1>hellobox3</h1>
+    </div>
+    <div class="box4">
+        <h1>hellobox4</h1>
+    </div>
+    
+</body>
+<script>
+    $(function(){
+        $(window).scroll(function() {      
+                $.extend({
+                    yy(s){
+                        let name_select = s.selector;//选择器名称
+                        // console.log(s,'ss')
+                        let oT = $(`${name_select}`).offset().top;
+                        let sT = $(window).scrollTop();
+                        let cH = $(window).height();
+                        if (sT + cH >= oT) {//滚动到该元素的位置了
+                        $(`${name_select}`).children().css({'paddingTop':'20px','opacity':1});
+                        }
+                    }
+                });
+
+                $.yy($('.box2'));
+                $.yy($('.box3'));
+                $.yy($('.box4')); 
+        })
+    })
+
+</script>
+</html>

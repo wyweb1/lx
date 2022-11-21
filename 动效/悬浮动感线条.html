@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://www.jianguook.com/static/js/jquery-1.7.2.min.js"></script>
+
+</head>
+<style>
+    .box{
+        width: 1200px;
+        margin: 0 auto;
+        margin-top: 100px;
+        background: #645832;
+        padding: 5px;
+    }
+    .box a{
+        text-decoration: none;
+        display: block;
+        height: 50px;
+        line-height: 50px;
+        width: 80px;
+        color: burlywood;
+        /* transition: color .25s ease-out,opacity .25s ease-out; */
+      
+    }
+    .box a:after{
+        margin-top: 3px;
+        margin: 0 auto;
+
+        /* 必写 */
+        content:"";
+        display: block;
+        width: 90%;
+        height: 1px;
+        background-color: burlywood;
+         /* 关键属性 */
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform .8s cubic-bezier(.16,1,.3,1);
+       
+    }
+    .box a:hover:after{
+       
+        transform-origin: left;
+        transform: scale(1);
+        transition: transform .8s cubic-bezier(.16,1,.3,1);
+        /* 贝塞尔曲线 */
+
+    }
+</style>
+<body>
+    <div class="box">
+        <a href="">1-Decors</a>
+        <a href="">2-Decors</a>
+        <a href="">3-Decors</a>
+        <a href="">4-Decors</a>
+    </div>
+</body>
+</html>

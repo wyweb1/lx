@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://www.jianguook.com/static/js/jquery-1.7.2.min.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    ul{
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 100px;
+       
+        
+    }
+    ol{
+        width: 280px;
+        display: inline-block;
+        margin-right: 20px;
+        position: relative;
+    }
+    ol>img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 280px;
+        height: 240px;
+    }
+    ol>img:nth-child(2){
+        opacity: 0;
+    }
+</style>
+<body>
+    <ul>
+        <ol>
+            <img src="./images/1.png" alt="">
+            <img src="./images/1g.png" alt="">
+        </ol>
+        <ol>
+            <img src="./images/2.png" alt="">
+            <img src="./images/2g.png" alt="">
+        </ol>
+        <ol>
+            <img src="./images/3.png" alt="">
+            <img src="./images/3g.png" alt="">
+        </ol>
+        <ol>
+            <img src="./images/4.png" alt="">
+            <img src="./images/4g.png" alt="">
+        </ol>
+    </ul>
+
+</body>
+<script>
+    $(function(){
+        $('ol').mouseover(function(){
+            $(this).children().last().css({'opacity':'1','transition':'0.5s all'})
+        });
+        $('ol').mouseleave(function(){
+            console.log('lik')
+            $(this).children().last().css({'opacity':'0','transition':'0.5s all'})
+        })
+    })
+</script>
+</html>

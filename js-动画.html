@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://www.jianguook.com/static/js/jquery-1.7.2.min.js"></script>
+
+</head>
+<style>
+/* 1 */
+    #train{
+        position: relative;
+        cursor: pointer;
+        width: 177px;
+        height: 160px;
+        left: 0;
+    }
+    /* 2 */
+    #elem{
+        width: 5%;
+    }
+    /*  */
+#path{
+    border: 1px solid green;
+    height: 20px;
+    width: 540px;
+}
+#brick{
+    width: 40px;
+    height: 20px;
+    background: pink;
+    position: relative;
+    cursor: pointer;
+}
+</style>
+<body>
+    <!-- 1 -->
+    <img id="train" src="./images/train.gif" alt="gif" />
+
+    <!-- 2 -->
+<br>
+    <progress id="elem"></progress>
+
+    <!-- 时序函数 -->
+    <div id="path">
+        <div id="brick"></div>
+    </div>
+
+</body>
+<script>
+    $(function(){
+        //1 火车移动
+        $('#train').click(function(){
+            
+            let start = Date.now();
+            let timer = setInterval(function(){
+            let timePassed = Date.now()-start; 
+            if(timePassed>2000)clearInterval(timer);
+               
+            $('#train').css({'left':`${timePassed/5}px`});
+            },20)
+        })
+
+        
+    })
+
+    let prev = performance.now();//从页面加载开始经过的毫秒数
+    let a = Math.floor(3.5);
+        console.log(a,prev)
+        document.body.insertAdjacentHTML('beforeEnd',a);
+
+
+        
+//2 创建结构动画函数
+    // duration 持续时间，
+    //draw变更动画样式，
+    //timing时序函数类似 CSS 属性 transition-timing-function，传入一个已过去的时间与总时间之比的小数（0 代表开始，1 代表结束），返回动画完成度（类似 Bezier 曲线中的 y）。
+
+    function animate({duration,timing,draw,}){
+    let start = performance.now();
+    requestAnimationFrame(function aaaanimate(time){//aaaanimate是requst...的回调函数，函数内容自定义，参数time是resq返回的从页面加载开始经过的毫秒数
+        //timeFraction 从0增加到1 
+        let timeFraction = (time - start) /duration;
+        if(timeFraction > 1){
+            timeFraction = 1;
+        }
+
+        let progress = timing(1.5,timeFraction);
+
+        draw(progress);
+        if(timeFraction < 1){
+            requestAnimationFrame(aaaanimate);
+        }
+    })
+}
+
+elem.onclick = function(){
+    // 调用animate
+    animate({
+    duration:1000,
+    timing(timeFraction){
+        return timeFraction
+    },
+    draw(progress){
+        elem.style.width = progress*100+'%';
+    },
+   
+})
+}
+
+path.onclick=function(){
+    function quad(timeFraction){//n次幂函数
+            return Math.pow(timeFraction,5)
+        }
+    function circ(){//圆弧
+        return 1- Math.sin(Math.acos(timeFraction))
+    }
+
+   let timing = function back(x, timeFraction) {//弓箭射击，此函数执行“弓箭射击”。首先，我们“拉弓弦”，然后“射击”。
+        //与以前的函数不同，它取决于附加参数 x，即“弹性系数”。“拉弓弦”的距离由它定义。
+        return Math.pow(timeFraction, 2) * ((x + 1) * timeFraction - x);
+    }
+
+
+    animate({
+        duration:1000,
+        draw(progress){
+            
+            brick.style.left =progress*93+'%';
+        },
+        timing,
+
+    })
+}
+</script>
+</html>

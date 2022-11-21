@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rect</title>
+</head>
+<style>
+    body{
+        height: 100vh;
+    }
+</style>
+<body>
+    <h4>svg画图形</h4>
+    <hr>
+    <p>rect：矩形</p>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <rect 
+        width="300" 
+        height="100"
+        style="fill:rgb(0,0,255 );stroke-width: 5; stroke:rgb(0, 255, 0)" 
+        />
+    </svg>
+    <!-- 
+        总结：
+        width，height定义矩形宽高
+        style定义css
+        fill定义填充颜色
+        stroke-width定义边框宽度
+        stroke定义边框颜色
+     -->
+
+     <p>矩形：透明度</p>
+     <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+         <rect 
+         x="50" 
+         y="0" 
+         width="150" 
+         height="150" 
+         style="fill: salmon;stroke:pink;stroke-width: 5;fill-opacity: 0.1;stroke-opacity: 0.9;"
+         />
+     </svg>
+     <!-- 
+         新出现的属性总结
+         x属性定义矩形的左侧位置（例如，x=0,定义矩形到浏览器窗口左侧的距离是0px）
+         y属性定义矩形的顶端位置（例如y=0，定义矩形到浏览器窗口顶端的距离是0px）
+         fill-opacity 属性定义填充颜色透明度（有效范围是：0-1）
+         stroke-opacity属性定义轮廓颜色的透明度（有效范围0-1）
+      -->
+
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <rect x="50" y="20" width="150" height="150"
+        style="fill:blue;stroke:pink;stroke-width:5;opacity:0.5"/>
+      </svg>
+      <!-- opacity属性定义整个元素的透明度 -->
+
+      <p>圆角矩形</p>
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <rect 
+        x="50" y="20" 
+        rx="20" 
+        ry="20" 
+        width="150" height="150"
+        style="fill:red;stroke:black;stroke-width:5;opacity:0.5"/>
+      </svg>
+      <!-- 
+          总结：
+          rx、ry属性定义矩形圆角
+       -->
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flightBook</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+
+</head>
+<style>
+
+select,
+input,
+button {
+  display: block;
+  margin: 0.5em 0;
+  font-size: 15px;
+}
+
+input[disabled] {
+  color: #999;
+}
+
+p {
+  color: red;
+}
+#root{
+    margin: 0 auto;
+    width: 500px;
+    }
+</style>
+<body>
+    <div id="root">
+        <select v-model="flightType" >
+        <option value="one-way flight">One-way Flight</option>
+        <option value="return flight">Return Flight</option>
+    </select>
+    <input type="date" >
+    <input type="date" :disabled="false">
+    <button :disabled="false">Book</button>
+    <p>提示{{test}}</p>
+    </div>
+</body>
+<script>
+    import { createApp } from 'vue';
+    function stringToDate(str){
+        const [y,m,d] = str.split('-');
+        return new Date(+y,m-1,+d)
+    }
+    function dateToString(date){
+        return(
+            date.getFullYear()+'-'+pad(date.getMonth()+1)+'-'+pad(date.getDate())
+        )
+    }
+    function pad(n,s=String(n)){
+        return s.length<2?`0${s}`:s;
+    }
+    createApp({
+        data(){
+            return{
+                flightType: 'one-way flight',
+                departureDate: dateToString(new Date()),
+                returnDate: dateToString(new Date()),
+                test:'hhh ',
+            }
+        },
+        computed:{
+
+        },
+        methods: {
+            
+        },
+    })
+</script>
+</html>

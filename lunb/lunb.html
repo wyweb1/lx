@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    html, body {
+      position: relative;
+      height: 100%;
+    }
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color:#000;
+      margin: 0;
+      padding: 0;
+    }
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+      background: #000;
+    }
+    .swiper-pagination-bullet {
+        width: 10px;
+        height: 8px;
+        border-radius: 4px;
+        background: #92b5ff;
+    }
+    .swiper-pagination-bullet-active {
+        width: 25px;
+        height: 8px;
+        border-radius: 4px;
+        background: #fff;
+    }
+
+    /* swiperactive */
+    /* .swiper_pain_ac{
+        width: 25px;
+        height: 8px;
+        border-radius: 4px;
+        background: #fff;
+    }
+    .swiper_pain_unac{
+        width: 10px;
+        height: 8px;
+        border-radius: 4px;
+        background: #92b5ff;
+    } */
+</style>
+<body>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">Slide 1</div>
+          <div class="swiper-slide">Slide 2</div>
+         
+        
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+    autoplay:true,
+      loop:true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true, 
+       
+      },
+    //   paginationType : 'custom',
+    //     paginationCustomRender: function (swiper, current, total) {
+    //         console.log(current,'current')
+    //         return current + ' of ' + total;
+    //     }
+
+    });
+
+    //主要是这部分
+    swiper.on('slideChangeTransitionEnd', function () {
+        // let index =  $('.swiper-slide-active').index()-2;
+        // $('.swiper-pagination').children().eq(index).addClass('swiper_pain_ac').siblings().removeClass('swiper_pain_ac').addClass('swiper_pain_unac');
+        
+    // console.log(index,'222');
+});
+    
+  </script>
+</html>

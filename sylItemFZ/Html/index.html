@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>生意鹿-助赢旗下品牌连锁创业项目招商加盟首个c2b创业项目评估与交易保障平台</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <!-- header -->
+    <div class="header">
+        <div>
+            <ul class="left_ul">
+                <li>欢迎来到生意鹿!</li>
+                <li>生意鹿小程序
+                    <div class="y_xcx">
+                        
+                        <div>syl</div>
+                        <hr>
+                        <div></div>
+                    </div>
+                </li>
+                <li>微信公众号
+                    <div class="y_xcx">
+                        <div>gzh</div>
+                        <hr>
+                        <div></div>
+                    </div>
+                </li>
+                <li>鹿视角
+                    <div class="y_xcx">
+                        <div>lsj</div>
+                        <hr>
+                        <div></div>
+                    </div>
+                </li>
+            </ul>
+            <ul class="ul_right">
+                <li>Boss,请登录</li>
+                <li>招商中心
+                    <!-- <div>
+                        <div>招商系统</div>
+                        <div>项目入驻</div>
+                    </div> -->
+                </li>
+                <li>网站导航</li>
+            </ul>
+    </div>
+    </div>
+    <!-- headerTab -->
+    <div>
+
+    </div>
+
+</body>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.5.1.min.js"></script>
+<script>
+    $(function(){
+        console.log('引入成功')
+        $('ul>li').mouseenter(function(){
+            if($(this).index()==0)return;
+            $(this).children('.y_xcx').show();
+            
+            $(this).addClass('li_active');
+        });
+        $('ul>li').mouseleave(function(){
+            if($(this).index()==0)return;
+            $(this).children('.y_xcx').hide();
+            $(this).removeClass('li_active');
+        })
+    })
+</script>
+</html>

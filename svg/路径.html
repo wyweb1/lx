@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>svg路径</title>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <path d="M150 0 L75 200 L225 200 Z" />
+    </svg>
+
+    <!-- 上面的例子定义了一条路径，它开始于位置150 0，到达位置75 200，然后从那里开始到225 200，最后在150 0关闭路径。 -->
+    <!-- 
+        <path> 元素用于定义一个路径。
+        下面的命令可用于路径数据：
+        M = moveto  移动到
+        L = lineto 直线
+        H = horizontal lineto 水平线
+        V = vertical lineto  垂直线
+        C = curveto  曲线
+        S = smooth curveto 圆滑曲线
+        Q = quadratic Bézier curve  二次贝尔曲线
+        T = smooth quadratic Bézier curveto 光滑二次Bézier曲线
+        A = elliptical Arc  椭圆弧
+        Z = closepath  封闭路径
+        注意：以上所有命令均允许小写字母。大写表示绝对定位，小写表示相对定位。
+     -->
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    
+</head>
+<body>
+    <button onclick="getlocation()">点我获取定位</button>
+    <div id="demo"></div>
+</body>
+<script type="text/javascript">
+    console.log('1')
+    var x = document.getElementById("demo");
+//首先是判断浏览器是否支持geolocation属性
+// navigator.geolocation.getCurrentPosition(
+//     function(success) {
+//         /* Location tracking code */
+//     },
+//     function(failure) {
+//         if(failure.message.indexOf("Only secure oroirns are allowed") == 0) {
+//             alert('Only secure oroirns are allowed by your browser.');
+//         }
+//     }
+// );
+
+   function getlocation(){
+        navigator.geolocation.getCurrentPosition(position => {
+        const { latitude, longitude } = position.coords;
+        console.log(position,'pos');
+        // Show a map centered at latitude / longitude.
+        },function(error){
+            console.log('error code:'+error.code);
+            console.log('error message:'+error.message);
+        },{
+            enableHighAccuracy:false,
+            timeout:5000,
+            maximumAge:Infinity
+        });
+    }
+</script>
+</html>

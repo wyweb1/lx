@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://www.jianguook.com/static/js/jquery-1.7.2.min.js"></script>
+
+</head>
+<style>
+    .animate{
+        width: 47px;
+        height: 260px;
+        position: relative;
+        /* border: 1px solid gold ; */
+        border-right:8px dashed green ;
+        border-bottom:5px solid burlywood ;
+        overflow: hidden;
+    }
+    .animateImg{
+        height: 103px;
+        width: 38px;
+        position: absolute;
+        left: 10px;
+        top: 160px;
+        
+        background:url('./images/xiongmao.png') no-repeat -494px 0px;
+        animation: frame 2s steps(13) forwards infinite;
+        
+    }
+    @keyframes frame {
+        /* x、y,因为这个熊猫图是横排的过程图，所以y轴不变，x轴变换 */
+        0%{background-position: 0 0 ;} 
+        100%{background-position:-494px 0;}
+    }
+    
+</style>
+<body>
+    <div class="animate">
+        <div class="animateImg"></div>
+    </div>
+
+    <!-- <div class="animate">
+       
+    </div> -->
+</body>
+<script>
+   $(function(){
+       setInterval(function(){
+           
+        $('.animateImg').animate({top:'-=8px'},function(){
+            let top = $(this).css('top');
+            
+            if(top<='0px'){
+                console.log('到顶了奔奔!!!');
+                //用动画增加过渡效果，让熊猫最后一帧趣味的滑下来
+                $(this).animate({top:'160px',tranistion:'all 0.5'})
+            }
+        });
+       },1200);
+
+       
+       
+   })
+</script>
+</html>

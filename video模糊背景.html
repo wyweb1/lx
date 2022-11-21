@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://www.jianguook.com/static/js/jquery-1.7.2.min.js"></script>
+</head>
+<style>
+    .box_bg{
+        width: 500px;
+        height: 300px;
+        background: #000;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+    }
+    .box_video_bg{
+        width: 100%;height: 100%;
+     
+        position: relative;
+        z-index: 4;
+
+        /* 主要使用到的新属性 */
+        background-color: rgba(255, 255, 255, .15);  
+        backdrop-filter: blur(5px);
+    }
+    .box_video_bg video{
+        width: 100%;
+        height: 100%;
+    }
+    .box_mask{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+
+</style>
+<body>
+    <div class="box_bg">
+        <div class="box_video_bg">
+            <video id="spe_video" autoplay="autoplay" width="100%" muted="muted" autoplay="autoplay" preload="auto"height="100%" controls="controls" src="https://bj.bcebos.com/b2b-video/af2114077393959ed76e7dd01b2b86c7_transcode.mp4?authorization=bce-auth-v1%2F93a524086d8e4688834066e88a88c363%2F2021-11-30T10%3A20%3A17Z%2F-1%2Fhost%2F29e3896cf39ad6e194e17899c0dd9dbee1060768e4104d2283d14a26cd5db1d3"></video>
+        </div>
+        <div class="box_mask">
+            <canvas id="myCanvas" width="500" height="300"></canvas>
+        </div>
+    </div>
+
+    <script>
+              
+        var v = document.getElementById("spe_video");
+        var c = document.getElementById("myCanvas");
+        ctx = c.getContext('2d');
+
+        v.addEventListener('play', function() {
+            var i = window.setInterval(function() {
+                ctx.drawImage(v, 0,0, 500,300)
+            }, 20);
+        }, false);
+
+</script>
+</body>
+</html>

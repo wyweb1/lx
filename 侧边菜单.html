@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+<style lang="">
+    *{
+        box-sizing: border-box;
+    }
+    ul{
+        list-style: none;
+    }
+    a{
+        text-decoration: none;
+    }
+    body{
+        background-color: aliceblue;
+    }
+    .slot_wrapper{
+        width: 1200px;
+        height: 800px;
+        margin: 0 auto;
+       position: relative;
+    }
+    .list{
+        /* padding: 10px 0; */
+        display: flex;
+        justify-content: start;
+    }
+    .menu{
+        /* background: #ffff; */
+        padding:0 0 10px 0;
+        width: 184px;
+        background: #ffff;
+        border-right: 1px solid #fff;
+    }
+    .menu li{
+       
+        height: 38px;
+        padding:0px 12px 0px 16px;
+        border: 1px solid #fff;
+        /* text-align: center; */
+        display: flex;
+        justify-content: space-between;
+        line-height: 38px;
+        cursor: pointer;
+        background: #ffff;
+    }
+    .menu .li_active{
+        border: 1px solid #f95216;
+        border-right: 0;
+        width: calc(100% + 1px);
+        color: #f95216;
+        font-weight: 500;
+        padding-right: 14px;
+    }
+    .li_hovebor{
+        border-right: 1px solid #f95216;
+    }
+    .menu li a{
+        /* margin-left: 30px; */
+        font-size: 14PX;
+        color: #000;
+
+    }
+    .menu li:after{
+        content: '';
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border-right: 1px solid #999;
+        border-top: 1px solid #999;
+        transform-origin: 50% 50%;
+        transform: rotate(45deg);
+        border-color: #b8b8b8;
+        margin-top: 12.5px;
+    }
+    .sub_menu{
+        width: 766px;
+        /* margin-top: 26px; */
+        display: none;
+        padding-left: 0;
+       
+    }
+    .sub_menu li{
+        width: 100%;
+        height: 324px;
+        border:1px solid #f95216;
+        border-left: 0;
+        display: none;
+        background: #ffff;
+    }
+    .disply_none{
+        display: none ;
+    }
+    .disply_blo{
+        display: block !important;
+    }
+
+.guwenhelp{
+    background: #ffff;
+    width: 240px;
+    margin-left: 10px;
+    height:304px ;
+    border-radius: 10px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 15px;
+}
+
+.heade{
+    vertical-align: middle;
+    width: 100px;
+    height: 60px;
+}
+.sanjiao{
+    vertical-align: middle;
+    display: inline-block;
+
+    position: relative;
+    top: 4px;
+    width: 0;
+    height: 0;
+    border:4px solid transparent;
+    border-top-color: blue;
+    transition: all 0.3s ease-in-out;
+    transform-origin: 50% 25%;
+}
+
+/* 悬浮三角形样式 */
+.sanjiao_ac{
+    transform: rotate(-180deg);
+    
+    border-top: 4px solid rgb(255, 136, 0);
+}
+</style>
+<body>
+    <div class="heade">
+        餐饮
+        <div class="sanjiao"></div>
+    </div>
+    <div class="slot_wrapper">
+        <div class="list">
+            <ul class="menu">
+                <li><a href="">餐饮美食</a></li>
+                <li><a href="">教育培训</a></li>
+                <li><a href="">生活服务</a></li>
+                <li><a href="">美容养生</a></li>
+                <li><a href="">婴幼儿</a></li>
+                <li><a href="">生活家居</a></li>
+                <li><a href="">酒水饮料</a></li>
+                <li><a href="">服饰鞋帽</a></li>
+            </ul>
+            <ul class="sub_menu">
+                <li><a href="">1-美食</a></li>
+                <li><a href="">2-美食</a></li>
+                <li><a href="">3-美食</a></li>
+                <li><a href="">4-美食</a></li>
+                <li><a href="">5-美食</a></li>
+                <li><a href="">6-美食</a></li>
+                <li><a href="">7-美食</a></li>
+                <li><a href="">8-美食</a></li>
+            </ul>
+        </div>
+
+        <!-- 右边顾问帮选 -->
+        <div class="guwenhelp"></div>
+    </div>
+</body>
+<script>
+    $(function(){
+        // 规则边框
+        // $('.menu>li').mouseenter(function(){
+        //     let index = $(this).index();
+        //     $(this).addClass('li_active').siblings().addClass('li_hovebor');
+        //     $('.sub_menu').addClass('disply_blo');
+        //     $('.sub_menu>li').eq(index).addClass('disply_blo').siblings().removeClass('disply_blo li_active');
+
+        // })
+
+        // $('.menu>li').mouseleave(function(){
+        //     let index = $(this).index();
+
+        //     $(this).removeClass('li_active').siblings().removeClass('li_hovebor');;
+        //     $('.sub_menu').removeClass('disply_blo');
+        //     $('.sub_menu>li').eq(index).removeClass('disply_blo');
+
+        // })
+
+
+
+    // ！！！！如果从左边进右边，右边一值点击不上，看看右边进入区域是否不贴边！！！！
+        // 不规则边框
+        $('.menu>li').mouseenter(function(){
+            let index = $(this).index();
+            $(this).addClass('li_active');
+            $('.menu').addClass('li_hovebor');
+            $('.sub_menu').addClass('disply_blo');
+            $('.sub_menu>li').eq(index).addClass('disply_blo').siblings().removeClass('disply_blo li_active');
+
+        })
+
+        $('.menu>li').mouseleave(function(){
+            let index = $(this).index();
+
+            $(this).removeClass('li_active');
+            $('.menu').removeClass('li_hovebor');
+            $('.sub_menu').removeClass('disply_blo');
+            $('.sub_menu>li').eq(index).removeClass('disply_blo');
+
+        })
+
+        //悬浮三角形旋转
+        $('.heade').mouseenter(function(){
+            $(this).children('.sanjiao').addClass('sanjiao_ac');
+
+        })
+        $('.heade').mouseleave(function(){
+            $(this).children('.sanjiao').removeClass('sanjiao_ac');
+
+        })
+    })
+</script>
+</html>

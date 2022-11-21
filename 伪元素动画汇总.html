@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    /* 全局样式 */
+    body{
+        background: rgb(79 118 43 / 98%);
+
+    }
+
+    /*1. width 动画样式 */
+    .anim_width{
+        display: block;
+        height: 60px;
+        width: 100px;
+        padding: 0 10px;
+        line-height: 60px;
+        position: relative;
+        text-decoration: none;
+        color:goldenrod;
+    }
+   
+    .anim_width:before{
+        content:'';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 0;
+       
+
+        transition: .3s;
+        background-color: pink;
+        z-index: -2;
+    }
+
+    .anim_width:hover:before{
+        width: 100%;
+        z-index: -1;
+    }
+    /*  */
+
+
+    
+</style>
+<body>
+    <!-- 1 -->
+    <a class="anim_width" href="">社区解决方法</a>
+
+    <!--2  -->
+   
+</body>
+</html>

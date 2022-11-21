@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        box-sizing: border-box;
+    }
+
+    .content{
+        /* 确定宽高 */
+        width:700px;
+        height:700px;
+        /* background:pink; */
+        
+        margin: 0 auto;
+    }
+    
+    .yuan_box{
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        animation: loadingscale .5s both;
+    }
+    @keyframes loadingscale {
+        0% {
+            transform: scale(.2);
+            opacity: 0;
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    .yuan_box .circle{
+        position: absolute;
+        border-radius: 50%;
+        border: 1px solid #acbfff;
+        left: 5%;
+        top: 5%;
+        width: 90%;
+        height: 90%;
+    }
+    .yuan_box .circle_inner{
+        position: absolute;
+        border-radius: 50%;
+        border: 1px solid #acbfff;
+        left: 20%;
+        top: 20%;
+        width: 60%;
+        height: 60%;
+    }
+    .yuan_box .circle_inner img{
+        border-radius: 50%;
+        position: absolute;
+
+        left: 32%;
+        top: 32%;
+        width: 30%;
+        height:30%;
+        background: #3784ff;
+        box-shadow: 0 15px 32px 0 rgb(55 132 255 / 32%);
+        padding: 10px;
+
+    }
+    .yuan_box>a{
+        text-decoration: none;
+    }
+    .yuan_box>a img{
+        width: 75px;
+        height: 75px;
+        background: #fff;
+        box-shadow: 0 10px 26px 0 rgb(51 51 51 / 8%);
+        position: absolute;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: .3s;
+    }
+    .yuan_box>a img:hover{
+        transform: scale(1.1);
+        
+    }
+     #g1 img{
+        left:126px;
+        top: 315px;
+    }
+    #g2 img{
+        left:202px;
+        top: 462px;
+    }
+    #g3 img{
+        left:385px;
+        top: 471px;
+    }
+    #g4 img{
+        left:503px;
+        top:352px;
+    }
+    #g5 img{
+        left:452px;
+        top: 206px;
+    }
+    #g6 img{
+        left:312px;
+        top: 120px;
+    }
+    #g7 img{
+        left:174px;
+        top: 178px;
+    }
+</style>
+<body>
+   <div class="content">
+       <div class="yuan_box">
+           <div class="circle">
+               <div class="circle_inner">
+                   <img src="./images/member_140x145.jpg" alt="">
+               </div>
+           </div>
+
+           <a id="g1" ><img src="./images/member_140x145.jpg" alt=""></a>
+           <a id="g2"><img src="./images/member_140x145.jpg" alt=""></a>
+           <a id="g3"><img src="./images/member_140x145.jpg" alt=""></a>
+           <a id="g4"><img src="./images/member_140x145.jpg" alt=""></a>
+           <a id="g5"><img src="./images/member_140x145.jpg" alt=""></a>
+           <a id="g6"><img src="./images/member_140x145.jpg" alt=""></a>
+           <a id="g7"><img src="./images/member_140x145.jpg" alt=""></a>
+           
+           <!-- <a id="g8"><img src="./images/member_140x145.jpg" alt=""></a>
+           <a id="g9"><img src="./images/member_140x145.jpg" alt=""></a>
+           <a id="g10"><img src="./images/member_140x145.jpg" alt=""></a>
+           <a id="g11"><img src="./images/member_140x145.jpg" alt=""></a>
+           <a id="g12"><img src="./images/member_140x145.jpg" alt=""></a>
+           <a id="g13"><img src="./images/member_140x145.jpg" alt=""></a>
+           <a id="g14"><img src="./images/member_140x145.jpg" alt=""></a>
+           <a id="g15"><img src="./images/member_140x145.jpg" alt=""></a>
+           <a id="g16"><img src="./images/member_140x145.jpg" alt=""></a>
+           <a id="g17"><img src="./images/member_140x145.jpg" alt=""></a>
+           <a id="g18"><img src="./images/member_140x145.jpg" alt=""></a>
+           <a id="g19"><img src="./images/member_140x145.jpg" alt=""></a>
+           <a id="g20"><img src="./images/member_140x145.jpg" alt=""></a>
+           <a id="g21"><img src="./images/member_140x145.jpg" alt=""></a>
+           <a id="g22"><img src="./images/member_140x145.jpg" alt=""></a>
+           <a id="g23"><img src="./images/member_140x145.jpg" alt=""></a>
+           <a id="g24"><img src="./images/member_140x145.jpg" alt=""></a>
+           <a id="g25"><img src="./images/member_140x145.jpg" alt=""></a>
+           <a id="g26"><img src="./images/member_140x145.jpg" alt=""></a>
+           <a id="g27"><img src="./images/member_140x145.jpg" alt=""></a> -->
+
+       </div>
+   </div>
+</body>
+</html>

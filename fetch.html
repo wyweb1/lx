@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://www.jianguook.com/static/js/jquery-1.7.2.min.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+   
+//方法一：使用await必须和async一起使用，并且放在含有async修饰的函数里，否则报下面错误
+
+    // Uncaught SyntaxError: await is only valid in async functions and the top level bodies of modules
+        // 这个错误的意思是await只能放到async函数内部，言下之意：
+        //await必须放到函数里
+        // 函数必须有async修饰符
+        // async异步
+    const fetchFirst = async()=>{
+        let url = 'https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits';
+        let response = await fetch(url);
+        let whatthings = await response.json();
+        console.log(whatthings,'whatthings')
+    }
+    fetchFirst();
+   
+//方法二 仅使用promise语法，不使用await
+fetch('https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits')
+.then(response=>response.json())
+.then(function(commits){
+    console.log(commits[0].author.login,'方法二直接fetch')
+})
+
+//  ----------
+// post
+const postFetch = async()=>{
+    let user = {
+    name:'wyw',
+    surname:'wsq'
+};
+let url = '/article/fetch/post/user';
+let response = await fetch(url,{
+    method:'post',
+    headers:{
+        'Content-Type':'application/json;charset=utf-8'
+    },
+    body:JSON.stringify(user)
+});
+let result = await response.json();
+console.log(result.message,' 💣post')
+};
+
+postFetch();
+
+
+
+
+</script>
+</html>

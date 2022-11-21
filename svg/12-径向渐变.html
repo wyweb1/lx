@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+          <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+            <stop offset="0%" style="stop-color:rgb(255,255,255);
+            stop-opacity:0" />
+            <stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
+          </radialGradient>
+        </defs>
+        <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg"
+         xmlns:xlink="http://www.w3.org/1999/xlink" width="600">
+        <defs>
+            <radialGradient id="myRadialGradient4"
+            fx="5%" fy="5%" r="65%"
+            spreadMethod="pad">
+            <stop offset="0%"   stop-color="#00ee00" stop-opacity="1"/>
+            <stop offset="100%" stop-color="#006600" stop-opacity="1" />
+            </radialGradient>
+        </defs>
+    
+        <rect x="340" y="10" width="100" height="100" rx="10" ry="10"
+            style="fill:url(#myRadialGradient4);
+                    stroke: #005000; stroke-width: 3;" />
+      </svg>          
+      
+      <!-- 参考网址
+          http://www.htmleaf.com/ziliaoku/qianduanjiaocheng/201506302140.html#:~:text=SVG%E6%B8%90%E5%8F%98%E6%98%AF%E5%A1%AB%E5%85%85,SVG%20%E5%9B%BE%E5%BD%A2%E7%9A%84%E4%B8%80%E7%A7%8D%E6%96%B9%E6%B3%95%E3%80%82
+       -->
+</body>
+</html>

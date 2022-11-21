@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    margin: 0 auto;
+    max-width: 1200px;
+    height: 100vh;
+    background-color:rgba(119, 150, 69,1);
+    
+}
+body{
+    background: #000;
+    font-family: "microsoft yahei";
+}
+.all{
+    width: 280px;
+    height: 300px;
+    background: #fff;
+    margin: 80px;
+    float: left;
+    position: relative;
+   /* color: #fff; */
+   text-align: center;
+}
+.all h1{
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 2;
+    margin: 15px 0;
+}
+.list1{
+    padding:100px 0 10px ;
+    text-align: center;
+    transition: all 2s linear;
+}
+.list1 img{
+    width: 140px;
+    height: 145px;
+    border-radius: 50px 0 ;
+    position: absolute;
+    top: -70px;
+    left: 50%;
+    margin-left: -70px;
+    transition: all .5s linear;
+    border: 2px solid #fff;
+}
+.list1:hover img{
+    border-radius: 145px;
+}
+.shear1{
+    height: 5px;
+    background-color: gold;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: all .2s linear;
+}
+.list1:hover .shear1{
+    height: 50px;
+}
+/* 2 */
+.all2{width: 280px; float: left; margin: 30px 2.5%; background-color: #fff; text-align: center; position: relative;}
+.imgBox img{max-width: 100%; vertical-align: middle;}
+h3 {font-size: 24px; font-weight: normal; margin: 10px 0 0; text-transform: uppercase;}
+h5 {font-size: 16px; font-weight: 300; margin: 0 0 15px; line-height: 22px;}
+p {font-size: 14px; font-weight: 300; line-height: 22px; padding: 0 30px; margin-bottom: 10px;}
+.social-share a{display: inline-block; width: 27px; height:26px; vertical-align: middle; margin: 0 2px; background-image: url(../../images/social-icons.png); background-repeat: no-repeat; opacity: 0.7; transition: 0.3s;}
+.social-touch a:hover{opacity: 1; transition: 0.3s;}
+.list2{
+    max-height: 302px;
+    min-height: 302px;
+    overflow: hidden;
+}
+.list2 h3{
+    padding-top: 7px;
+    line-height: 33px;
+}
+.list2 .imgBox{
+    border-bottom: 5px solid #e5642b;
+    transition: 0.5s;
+    height: 212px;
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+
+}
+.list2 .imgBox img{
+    width: 100%;
+    vertical-align: bottom;
+}
+.list2 .info{
+    transition: .5s;
+}
+.list2 .social-share{
+    background-color: #e5642b;
+    vertical-align: bottom;
+}
+.list2:hover .imgBox{
+    border-bottom: 0;
+    border-radius: 0 0 50px 50px;
+    height: 81px;
+    width: 109px;
+    transition: .4s;
+    display: inline-block;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

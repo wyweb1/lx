@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="content_box_3">
+        <div class="container_content clearfix slide_in">
+          <h1>自有平台矩阵 只为成交结果</h1>
+          <ul class="logos">
+            <li class="active li_1"><img src="/static/images/logo_syl.png" /></li>
+            <li class="li_2"><img src="/static/images/logo_lsj.png" /></li>
+            <li class="li_3"><img src="/static/images/logo_xlkz.png" /></li>
+          </ul>
+          <div class="img_phone swiper-no-swiping">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <video
+                  src="/static/videos/video_syl.mp4"
+                  type="video/mp4"
+                  loop
+                  muted
+                  autoplay
+                ></video>
+              </div>
+              <div class="swiper-slide">
+                <video
+                  src="/static/videos/video_lsj.mp4"
+                  type="video/mp4"
+                  loop
+                  muted
+                  autoplay
+                ></video>
+              </div>
+              <div class="swiper-slide">
+                <img src="/static/images/img_xlkz.png" />
+              </div>
+            </div>
+          </div>
+          <div class="content_detail">
+            <div class="swiper-wrapper swiper-no-swiping">
+              <div class="swiper-slide">
+                <div class="name">生意鹿</div>
+                <div class="border"></div>
+                <div class="intro">领先的超CPA精准获客与成交转化平台</div>
+                <div class="intro_detail">
+                  生意鹿通过自身的严选严审机制，为创业用户提供项目审查评估报告、现场实拍、人工协助、开店补贴及履约保障等创业服务及合法性、真实性对比决策依据，全力打造成为领先的优质项目评估与选项决策平台，并真正以toC的方式解决了toB的问题。
+                </div>
+                <div class="more"><a href="#">了解生意鹿&gt;&gt;</a></div>
+                <div class="reg">
+                  <a href="javascript:;" class="tel modal_btn btn-light"
+                    ><span>免费注册体验</span>
+                    <div class="light"></div>
+                  </a>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="name">鹿视角</div>
+                <div class="border"></div>
+                <div class="intro">领先的创业主题社交类短视频平台</div>
+                <div class="intro_detail">
+                  这是一个垂直于创业服务领域的“以创业项目及加盟店经营短视频为核心展现形式，以品牌推广+创业分享为运营基础的”社交类短视频平台，主要解决企业精准获客与发现创业项目真实性、可行性的问题。
+                </div>
+                <div class="more"><a href="#">鹿视角&gt;&gt;</a></div>
+                <div class="reg">
+                  <a href="javascript:;" class="tel modal_btn btn-light"
+                    ><span>免费注册体验</span>
+                    <div class="light"></div>
+                  </a>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="name">小鹿快赚</div>
+                <div class="border"></div>
+                <div class="intro">基于共享模式的生态资源匹配平台</div>
+                <div class="intro_detail">
+                  小鹿快赚是一一个针对行业从业者开发的
+                  动动手指就能轻松赚钱”的生态资源互助与供需匹配平台，重点为获客企业提供私域精准资源导入及撮合交易服务，让个入借助碎片化时间把手中资源整合成了-种职业或行业。
+                </div>
+                <div class="more"><a href="#">了解小鹿快赚&gt;&gt;</a></div>
+                <div class="reg">
+                  <a href="javascript:;" class="tel modal_btn btn-light"
+                    ><span>免费注册体验</span>
+                    <div class="light"></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slide_btn">
+            <img src="/static/images/btn_prev.png" class="btn" id="btn_prev" />
+            <img src="/static/images/btn_next.png" class="btn" id="btn_next" />
+          </div>
+          <div class="page_num">
+            <div class="current">1</div>
+            /
+            <div class="total">3</div>
+            <script>
+              $(".content_box_3 .total").html(
+                $(".logos").children("li").length
+              );
+            </script>
+          </div>
+        </div>
+      </div>
+</body>
+<script>
+    /*.content_box_3*/
+var btn_flag;
+var active_li = $(".content_box_3 .logos li.active");
+
+var mySwiper_1 = new Swiper(".img_phone", {
+  initialSlide: 0,
+  loop: true,
+  effect: "fade",
+  runCallbacksOnInit: false,
+  on: {
+    slideChangeTransitionEnd: function () {
+      if (btn_flag === "prev") {
+        btn_num_prev();
+        icon_app_prev();
+      } else if (btn_flag === "next") {
+        btn_num_next();
+        icon_app_next();
+      }
+    },
+  },
+});
+var mySwiper_2 = new Swiper(".content_box_3 .content_detail", {
+  initialSlide: 0,
+  loop: true,
+  runCallbacksOnInit: false,
+});
+
+/*图标*/
+$(".content_box_3 .logos li").hover(function () {
+  $(this).addClass("active").siblings("li").removeClass("active");
+  var index = $(this).index();
+  mySwiper_1.slideTo(index + 1, 300, false);
+  mySwiper_2.slideTo(index + 1, 300, false);
+  $(".page_num .current").html(index + 1);
+});
+
+/*按钮*/
+$("#btn_prev").click(function () {
+  btn_flag = "prev";
+  mySwiper_1.slidePrev();
+  mySwiper_2.slidePrev();
+});
+
+$("#btn_next").click(function () {
+  btn_flag = "next";
+  mySwiper_1.slideNext();
+  mySwiper_2.slideNext();
+});
+
+function btn_num_next() {
+  var current_num = parseInt($(".page_num .current").html());
+  if (current_num === $(".logos").children("li").length) {
+    $(".page_num .current").html("1");
+    current_num = 1;
+  } else {
+    current_num = current_num + 1;
+    $(".page_num .current").html(current_num.toString());
+  }
+}
+
+function btn_num_prev() {
+  var current_num = parseInt($(".page_num .current").html());
+  if (current_num === 1) {
+    $(".page_num .current").html($(".logos").children("li").length + "");
+    current_num = $(".logos").children("li").length;
+  } else {
+    current_num = current_num - 1;
+    $(".page_num .current").html(current_num.toString());
+  }
+}
+
+function icon_app_next() {
+  var active_li = $(".content_box_3 .logos li.active");
+  if (active_li.index() === 2) {
+    active_li
+      .prev()
+      .prev()
+      .addClass("active")
+      .siblings("li")
+      .removeClass("active");
+  } else {
+    active_li.next().addClass("active").siblings("li").removeClass("active");
+  }
+}
+
+function icon_app_prev() {
+  var active_li = $(".content_box_3 .logos li.active");
+  if (active_li.index() === 0) {
+    active_li
+      .next()
+      .next()
+      .addClass("active")
+      .siblings("li")
+      .removeClass("active");
+  } else {
+    active_li.prev().addClass("active").siblings("li").removeClass("active");
+  }
+}
+
+</script>
+</html>

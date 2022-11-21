@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://www.jianguook.com/static/js/jquery-1.7.2.min.js"></script>
+</head>
+<style>
+    .main{
+        position: relative;
+    }
+    .tab{
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        
+    }
+    h1{
+        width: 100px;
+        height: 50px;
+        line-height: 50px;
+        color: #000;
+        font-size: 36px;
+        background:#fff;
+        cursor: pointer;
+        text-align: center;
+    }
+    .on{
+       
+        background-color: pink;
+        color: #fff;
+    }
+    .content{
+        position: absolute;
+        width: 100%;
+        text-align: left;
+    }
+   
+</style>
+<body>
+    <div class="main" id="elem">
+            <div class="tab">
+                <h1 class="on">煎饼</h1>
+                <h1>包子</h1>
+            </div>
+            <div class="content"></div>
+    </div>
+</body>
+<script>
+    $(function(){
+       
+        //假数据
+        let $data = ['只是内容1今煎饼加三个蛋！','则是内容2222'];
+        $('.content').html($data[0]);//默认显示第一个数据
+        $('.tab>h1').click(function(){
+            $(this).addClass('on').siblings().removeClass('on');
+            let $inde = $(this).index();
+            $('.content').html($data[$inde]).animate({'left':'30px','opacity':0},function(){
+                $('.content').animate({'left':'0','opacity':1})
+        })
+
+
+    })
+    console.log(location.href,'2222');
+    console.log(document.body,'body')
+    console.dir(document.body,'dir')
+    console.log(elem.type)
+    console.log(elem.id)
+    console.log(elem.innerText)
+    console.dir(elem)
+
+})
+</script>
+</html>

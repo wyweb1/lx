@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+    <script src="http://www.jianguook.com/static/js/jquery-1.7.2.min.js"></script>
+    <script src="http://www.yanhuangxueyuan.com/versions/threejsR92/build/three.js"></script>
+    <script src="https://82mou.github.io/threejs/js/OrbitControls.js"></script>
+</head>
+<style>
+    canvas{
+        height: 800px !important;
+    }
+</style>
+<body>
+    <div id="container"></div>
+</body>
+<script type="text/javascript" >
+var scene, camera, renderer;
+
+function initThree(){
+    //场景
+    scene = new THREE.Scene();
+    //镜头
+    camera = new THREE.PerspectiveCamera(90, document.body.clientWidth / document.body.clientHeight, 0.1, 100);
+    camera.position.set(0, 0, 0.01);
+    //渲染器
+    renderer = new THREE.WebGLRenderer();
+    renderer.setSize(document.body.clientWidth, document.body.clientHeight);
+    document.getElementById("container").appendChild(renderer.domElement);
+    //镜头控制器
+    var controls = new THREE.OrbitControls(camera, renderer.domElement);
+    
+    //一会儿在这里添加3D物体
+    var materials = [];
+    //根据左右上下前后的顺序构建六个面的材质集
+    var texture_left = new THREE.TextureLoader().load( './images/1.png' );
+    materials.push( new THREE.MeshBasicMaterial( { map: texture_left} ) );
+
+    var texture_right = new THREE.TextureLoader().load( './images/bookstore.jpg' );
+    materials.push( new THREE.MeshBasicMaterial( { map: texture_right} ) );
+
+    var texture_top = new THREE.TextureLoader().load( './images/1.png' );
+    materials.push( new THREE.MeshBasicMaterial( { map: texture_top} ) );
+
+    var texture_bottom = new THREE.TextureLoader().load( './images/bookstore.jpg' );
+    materials.push( new THREE.MeshBasicMaterial( { map: texture_bottom} ) );
+
+    var texture_front = new THREE.TextureLoader().load( './images/1.png' );
+    materials.push( new THREE.MeshBasicMaterial( { map: texture_front} ) );
+
+    var texture_back = new THREE.TextureLoader().load( './images/bookstore.jpg' );
+    materials.push( new THREE.MeshBasicMaterial( { map: texture_back} ) );
+
+    var box = new THREE.Mesh( new THREE.BoxGeometry( 1, 1, 1 ), materials );
+    scene.add(box);
+
+
+    loop();
+}
+
+//帧同步重绘
+function loop() {
+    requestAnimationFrame(loop);
+    renderer.render(scene, camera);
+}
+
+window.onload = initThree;
+
+</script>
+</html>

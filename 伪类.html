@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪类的诸多用法</title>
+</head>
+<style>
+    .p1:first-letter{
+        display: block;
+        float: left;
+        margin-right: 0.2em;
+        font-size: 1.7em;
+    }
+
+    .p2:first-line{
+        font-weight: bold;
+        font-size: 1.7em;
+    }
+
+    .p3::selection{
+        background-color: pink;
+    }
+
+    .p4{
+        width: 60px;
+        height: 40px;
+        background-color: bisque;
+        margin: 5px;
+    }
+    .p4:empty{
+        background-color: green;
+    }
+    .p4_a:empty::before{
+        content:attr(href);
+    }
+</style>
+
+<body>
+    <!-- :first-letter 给第一个字添加样式，这里用一个首字母下沉的例子来演示 -->
+    <p class="p1">中国是以华夏文明为源泉</p>
+
+    <!-- :first-line 给段落的第一行添加样式 -->
+    <p class="p2">
+        锦瑟<br/>
+        锦瑟无端五十弦，一弦一柱思华年。
+        庄生晓梦迷蝴蝶，望帝春心托杜鹃。
+    </p>
+
+    <!-- ::selection 设置文字被选中的状态，还是上面那段文字;复制文字时的背景颜色-->
+    <p class="p3" >中国是以华夏文明为源泉</p>
+
+    <!-- :empty css3新增 内容为空的元素样式 -->
+    <div class="p4"></div>
+    <div class="p4">我有内容</div>
+        <!-- ---如果a标签中间没有内容，把hre的值作为内容--- -->
+        <a class="p4_a" href="www.baidu.com"></a>
+    
+    <!-- :focus 当元素获得 -->
+</body>
+</html>

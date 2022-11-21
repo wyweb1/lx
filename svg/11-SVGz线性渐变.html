@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>svg渐变</title>
+</head>
+<body>
+    <!-- 
+        svg渐变分为两种类型：linear、radial
+        <linearGradient>元素用于定义线性渐变。
+        <linearGradient>标签必须嵌套在<defs>的内部。<defs>标签是definitions的缩写，它可对诸如渐变之类的特殊元素进行定义。
+     -->
+     <!-- 线性渐变可以定义为水平、垂直，角渐变 
+        当y1和y2相等，而x1和x2不同时，可创建水平渐变(水平时线段两点坐标y坐标相同，x坐标不同)
+        当x1和x2相等，而y1和y2不同时，可创建垂直渐变(垂直时x坐标不同)
+        当x1和x2不同，且y1和y2不同时，可创建角形渐变（都不同才倾斜）
+    -->
+    
+     <p>定义水平线性渐变从黄色到红的椭圆形</p>
+     <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color: rgb(255, 255, 0);stop-opacity: 1;" />
+                    <stop offset="100%" style="stop-color: rgb(255, 0, 0);stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+      </svg>
+
+
+        <p>水平三色</p>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <defs>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%" spreadMethod="pad">
+                        <!-- <stop offset="10%" style="stop-color: rgb(255, 255, 0);stop-opacity: 1;" />
+                        <stop offset="50%" style="stop-color: rgb(255, 0, 255);stop-opacity:1" />
+                        <stop offset="90%" style="stop-color: rgb(255, 0, 0);stop-opacity:1" /> -->
+                        
+                        <stop offset="10%" stop-color="#00cc00" stop-opacity="1"/>
+                        <stop offset="30%" stop-color="#006600" stop-opacity="1"/>
+                        <stop offset="70%" stop-color="#cc0000" stop-opacity="1"/>
+                        <stop offset="90%" stop-color="#000099" stop-opacity="1"/>
+                </linearGradient>
+            </defs>
+            <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+          </svg>
+
+          <p>多色渐变</p>
+          <svg xmlns="http://www.w3.org/2000/svg"xmlns:xlink="http://www.w3.org/1999/xlink" width="600">
+                <defs>
+                <linearGradient id="myLinearGradient1"
+                                x1="0%" y1="0%"
+                                x2="100%" y2="0%"
+                                spreadMethod="pad">
+                    <stop offset="10%" stop-color="#00cc00" stop-opacity="1"/>
+                    <stop offset="30%" stop-color="#006600" stop-opacity="1"/>
+                
+                    <stop offset="70%" stop-color="#cc0000" stop-opacity="1"/>
+                    <stop offset="90%" stop-color="#000099" stop-opacity="1"/>
+                
+                </linearGradient>
+                
+                </defs>
+                
+                <rect x="10" y="10" width="500" height="50" rx="10" ry="10"
+                style="fill:url(#myLinearGradient1); stroke: #005000;
+                        stroke-width: 3;" />
+            </svg>
+</body>
+</html>

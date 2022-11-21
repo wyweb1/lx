@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        width: 1200px;
+        margin: 0 auto;
+    }
+    .box_content{
+        width:100%;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+    }
+    .box_content li{
+        width: 155px;
+        height: 410px;
+        margin-right: 15px;
+        background: #000;
+        transition: all 0.5s;
+    }
+    .box_content li:nth-last-child(1){
+        margin-right: 0;
+    }
+    .box_select{
+        flex-grow: 1;
+        transition-timing-function: ease;
+        -webkit-box-flex: 1;/* 兼容处理 */
+
+    }
+</style>
+<body>
+    <div class="box">
+        <ul class="box_content">
+            <li class="box_select">这是第1板块</li>
+            <li>这是第2板块</li>
+            <li>这是第3板块</li>
+            <li>这是第4板块</li>
+            <li>这是第5板块</li>
+        </ul>
+    </div>
+</body>
+<script>
+    $(function(){
+        $('.box_content>li').mouseenter(function(){
+            $(this).addClass('box_select').siblings().removeClass('box_select');
+        })
+
+
+    })
+</script>
+</html>

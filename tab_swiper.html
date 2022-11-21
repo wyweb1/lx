@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./tab_swiper_4_5_3/swiper.min.js"></script>
+    <link rel="stylesheet" href="./tab_swiper_4_5_3/swiper.min.css">
+</head>
+<style>
+    *{box-sizing: border-box;}
+    .box{width: 1200px;margin: 0 auto;background: gold;}
+    .tab{list-style: none;}
+    .tab li{display: inline-block;}
+    .box_con{width: 100%;}
+    .swiper-slide{width: 260px !important;height: 300px;background:pink;}
+</style>
+<body>
+    <div class="box">
+        <ul class="tab">
+            <li>全部1</li>
+            <li>全部2</li>
+            <li>全部3</li>
+        </ul>
+        <div class="box_con">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">Resize me!</div>
+                  <div class="swiper-slide">Resize me!</div>
+                  <div class="swiper-slide">Resize me!</div>
+                  <div class="swiper-slide">Resize me!</div>
+                  <div class="swiper-slide">Resize me!</div>
+                  <div class="swiper-slide">Resize me!</div>
+                  <div class="swiper-slide">Resize me!</div>
+                  <div class="swiper-slide">Resize me!</div>
+                  <div class="swiper-slide">Resize me!</div>
+                  <div class="swiper-slide">Resize me!</div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </div>
+        </div>
+    </div>
+</body>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 4,
+      direction: getDirection(),
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      on: {
+        resize: function () {
+          swiper.changeDirection(getDirection());
+        }
+      }
+    });
+
+    function getDirection() {
+      var windowWidth = window.innerWidth;
+      var direction = window.innerWidth <= 760 ? 'vertical' : 'horizontal';
+
+      return direction;
+    }
+  </script>
+</html>

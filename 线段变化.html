@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://www.jianguook.com/static/js/jquery-1.7.2.min.js"></script>
+
+    <title>Document</title>
+</head>
+<style>
+    .lin_box{width: 270px;margin: 0 auto;height: 30px;text-align: left;}
+    .line{width: 0;height: 2px;background-color: RED;}
+    .line0{width: 0;}
+    .line210{width: 270px;}
+
+    .line_box_align_right{text-align: right;}
+    .btn1,.btn2{cursor: pointer;text-align: center;}
+
+</style>
+<body>
+    <div class="lin_box">
+        <div class="line">hhhh</div>
+    </div>
+    <div class="btn1">点击1</div>
+    <div class="btn2">点击2</div>
+</body>
+<script>
+    $(function(){
+        $('.btn1').click(function(){
+          $('.line').animate({'width':'270px'},3000,function(){
+              $(this).css({'width':'0'})
+          })
+        // $('.line').css({'width':'270px'}).delay(5000).css({'width':'0px'})
+
+        })
+    })
+</script>
+</html>

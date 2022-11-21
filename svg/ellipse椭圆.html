@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>椭圆</title>
+</head>
+<body>
+    <!-- ellipse定义椭圆 -->
+    <p>椭圆svg</p>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <ellipse cx="100" cy="80" 
+        rx="100" 
+        ry="50"
+        style="fill: seagreen;stroke:sienna;stroke-width: 2;"
+        />
+    </svg>
+    <!-- 
+        总结：
+        cx属性定义椭中心的x坐标
+        cy...y坐标
+        rx属性定义椭圆的水平半径
+        ry属性定义椭圆的垂直半径
+     -->
+
+     <p>重叠的椭圆</p>
+     <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <ellipse cx="240" cy="100" rx="220"  ry="30" style="fill:slateblue"/>
+        <ellipse cx="220" cy="70" rx="190" ry="20" style="fill: lime;" />
+        <ellipse cx="210" cy="45" rx="170" ry="15" style="fill: yellow;" />
+    </svg>
+
+    <p>两个椭圆组合的图形</p>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <ellipse cx="240" cy="50" rx="220" ry="30" style="fill:yellow"/>
+        <ellipse cx="220" cy="50" rx="190" ry="20" style="fill:red"/>
+    </svg>
+    <!--
+        总结：
+        利用y坐标相同的原理（距离浏览器上端高度相同原则）
+      -->
+</body>
+</html>

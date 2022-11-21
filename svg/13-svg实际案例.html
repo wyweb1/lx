@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>沿路径移动的文本</p>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <g transform="translate(100,100)">
+          <text id="TextElement" x="0" y="0" style="font-family:Verdana;font-size:24"> It's SVG!
+            <animateMotion path="M 0 0 L 100 100" dur="5s" fill="freeze" />
+          </text>
+        </g>
+      </svg>
+
+      <p>滚动的小球</p>
+      <svg>
+            <title>Attribute Animation with SMIL</title>
+            <rect x="0" y="0" width="300" height="100" stroke="black" stroke-width="1" />
+            <circle cx="0" cy="50" r="15" fill="blue" stroke="black" stroke-width="1">
+            <animate
+                attributeName="cx" from="0" to="500"
+                dur="5s" repeatCount="indefinite" />
+            </circle>
+        </svg>
+        <!-- 属性
+            attributeName:变动的属性名
+            from 变动的初始值
+            to
+            变动的终值
+            dur
+            动画的持续时间
+        -->
+
+        <p>触壁的小球</p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="300" height="100">
+            <title>SVG SMIL Animate with Path</title>
+            <rect x="0" y="0" width="300" height="100" stroke="black" stroke-width="1" />
+            <circle cx="0" cy="50" r="15" fill="blue" stroke="black" stroke-width="1">
+              <animateMotion
+                 path="M 0 0 H 300 Z"
+                 dur="3s" repeatCount="indefinite" />
+            </circle>
+          </svg>
+            <!-- 总结
+            MoveTo命令命令指定动画路径的起始点，而Horizontal-line命令把圆移到右边300像素处，Z命令闭合路径，
+            建立一个回到起始点的回路。把repeatCount属性的值设置为indefinite，我们指明了反复循环的动画，
+            只要SVG图像还存在就会一直循环下去
+            -->
+
+            
+          <p>往返的小方块</p>
+          <svg width="300" height="100">
+            <title>SVG SMIL Animate with Path</title>
+            <rect x="0" y="0" width="300" height="100" stroke="black" stroke-width="1" />
+            <rect x="0" y="0" width="20" height="20" fill="blue" stroke="black" stroke-width="1">
+              <animateMotion
+                 path="M 250,80 H 50 Q 30,80 30,50 Q 30,20 50,20 H 250 Q 280,20,280,50 Q 280,80,250,80Z"
+                 dur="3s" repeatCount="indefinite" rotate="auto" />
+            </rect>
+          </svg>
+
+          <p>在风中凌乱的纸片</p>
+          <svg width="300" height="100">
+            <title>SVG SMIL Animate with transform</title>
+            <rect x="0" y="0" width="300" height="100" stroke="black" stroke-width="1" />
+            <rect x="0" y="50" width="15" height="34" fill="blue" stroke="black" stroke-width="1">
+              <animateTransform
+                 attributeName="transform"
+                 begin="0s"
+                 dur="20s"
+                 type="rotate"
+                 from="0 60 60"
+                 to="360 100 60"
+                 repeatCount="indefinite"
+                      />
+            </rect>
+          </svg>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://www.jianguook.com/static/js/jquery-1.7.2.min.js"></script>
+
+</head>
+<style>
+    div{
+        width: 100%;
+        height: 700px;
+        /* margin-top: 60px; */
+    }
+    p{
+        width: 1200px;
+        margin: 0 auto;
+        height: 60px;
+        background: gold;
+        text-align: center;
+        /* position: relative; */
+    }
+
+    a{
+        line-height: 60px;
+        font-size: 14px;
+        margin-right: 20px;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <p><a href="#1box">文段1</a><a href="#2box">文段2</a><a href="#3box">文段3</a><a href="#4box">文段4</a><a href="#5box">文段5</a><a href="#6box">文段6</a></p>
+    <div id="1box">文段1</div>
+    <div id="2box">文段2</div>
+    <div id="3box">文段3</div>
+    <div id="4box">文段4</div>
+    <div id="5box">文段5</div>
+    <div id="6box">文段6</div>
+</body>
+<script>
+    $(function(){
+        $('a').click(function(){
+            let index = $(this).index();
+            let scrollH = $('div').eq(index).offset().top;
+            console.log(index,'index')
+            $('html,body').animate({
+                scrollTop:`${scrollH-60}`//减去吸顶的高度
+            },500)
+        })
+
+        // 滑动到某个数值tab吸顶
+       $(window).scroll(function(){
+        let x =  $(this).scrollTop();
+        // console.log(x,'xxx')
+        if(x>100){
+           $('p').css({'position':'fixed','top':'0'})
+       }
+       })
+    })
+</script>
+</html>

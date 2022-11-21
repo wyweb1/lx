@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://www.jianguook.com/static/js/jquery-1.7.2.min.js"></script>
+    <title>Document</title>
+</head>
+<style>
+   
+    .zc_btn{
+        width: 200px;
+        height: 50px;
+        border-radius: 6px;
+        margin: 0 auto;
+        margin-top: 50px;
+        background-color: #3069ff;
+        /* 下方必写 */
+        position: relative;
+        overflow: hidden;
+    }
+    a{
+        display: inline-block;
+        width: 200px;
+        height: 50px;
+        line-height: 50px;
+        color: #fff;
+        font-size: 16px;
+        text-decoration: none;
+        text-align: center;
+        vertical-align: middle;
+    }
+    .dot{
+        width: 120px;
+        height: 120px;
+        opacity: 0.8;
+        background-image: -webkit-radial-gradient(rgba(137, 204, 235, 0.5),rgba(142, 215, 238, 0),rgba(142, 215, 238, 0));
+        border-radius: 50%;
+        position:absolute;
+        left: -10px;
+        top: -35px;
+        display: none;
+    }
+</style>
+<body>
+    <div class="zc_btn">
+        <div class="dot"></div>
+        <a href="">点我去注册</a>
+    </div>
+</body>
+<script>
+    $(function(){
+
+      $('.zc_btn').mousemove(function(e){
+        $('.dot').show();
+        let x =e.pageX-$(this).offset().left;
+        let y =e.pageY-$(this).offset().top;
+        x=x-60;//减去dot宽的一半
+        console.log(x,y)
+        $('.dot').css({'transform':`translate(${x}px,${y}px)`});
+      })
+
+      $('.zc_btn').mouseleave(function(){
+        $('.dot').hide();
+      })  
+    })
+</script>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://www.jianguook.com/static/js/jquery-1.7.2.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        
+    </div>
+</body>
+<script>
+    let company = {
+            sales: [
+                        {
+                        name: 'John',
+                        salary: 1000
+                        }, 
+                        {
+                            name: 'Alice',
+                            salary: 1600
+                        }
+                    ],
+
+            development: {
+                    sites: [
+                            {
+                            name: 'Peter',
+                            salary: 2000
+                            }, 
+                            {
+                            name: 'Alex',
+                            salary: 1800
+                            }
+                        ],
+
+                    internals: [
+                            {
+                            name: 'Jack',
+                            salary: 1300
+                            }
+                        ]
+                        }
+                    };
+
+                let sanmu = [{name:'lili',age:'12'},{name:'xw',age:'13'}]
+        function digui(company){
+            if(Array.isArray(company)){
+                return   company.forEach((item,index)=>{
+                //   console.log(item,index);
+                 $('.farther').append(`<div>${item.name}</div>`);
+                })
+            }else{
+                
+                Object.entries(company).map((item2,index)=>{
+                    console.log(item2,index);
+                    // 创建元素 加入box。
+                    let farther = $(`<div class="farther">${item2[0]}</div>`);
+                    $('.box').append(farther);
+                    // $('.box').append(`<div>${item2[0]}</div>`)
+                    // $('.farther').append(digui(item2[1]))
+                    digui(item2[1])
+                    
+                })
+            }
+            return ;
+        }
+        // digui(company);
+
+        // 是对象展示 层级名；是数组放到子集展示名字
+
+        function digui2(com){
+            if(Array.isArray(com)){
+               if(Object.keys(com).length){
+                   
+               }
+            }else{
+
+            }
+            
+        }
+digui2(sanmu)
+</script>
+<style>
+    .farther{
+        font-weight: bold;
+    }
+    .farther div{margin-left: 40px;}
+</style>
+</html>

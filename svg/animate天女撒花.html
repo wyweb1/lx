@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .svgActive{
+       position: fixed;
+       bottom: 10%;
+       left: 20%;
+        
+    }
+    
+    @keyframes heartAuto1 {
+        0%{
+            opacity: 0;
+            transform: scale3d(0.7, 0.7, 0.7) translate3d(0, 0, 0) rotate(0);
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+            transform: scale3d(1, 1, 1) translate3d(-25%, -160%, 0) rotate(-25deg);
+        }
+    }
+    @keyframes heartAuto2 {
+        0%{
+            opacity: 0;
+            transform: scale3d(0.5, 0.5, 0.5) translate3d(0, 0, 0) rotate(0);
+        }
+        50% {
+            opacity: .75;
+        }
+        100% {
+            opacity: 0;
+            transform: scale3d(0.75, 0.75, 0.75) translate3d(-125%, -100%, 0) rotate(-35deg);
+        }
+    }
+    @keyframes heartAuto3 {
+        0% {
+            opacity: 0;
+            transform: scale3d(0.35, 0.35, 0.35) translate3d(0, 0, 0) rotate(0);
+        }
+        50% {
+            opacity: .5;
+        }
+        100% {
+            opacity: 0;
+            transform: scale3d(0.5, 0.5, 0.5) translate3d(150%, -120%, 0) rotate(35deg);
+        }
+    }
+    @keyframes heartAuto4 {
+        0%{
+            opacity: 0;
+            transform: scale3d(0.25, 0.25, 0.25) translate3d(0, 0, 0) rotate(0);
+        }
+        50% {
+            opacity: .75;
+        }
+        100% {
+            opacity: 0;
+            transform: scale3d(0.55, 0.55, 0.55) translate3d(-125%, -100%, 0) rotate(-35deg);
+        }
+    }
+    .svgActive img{
+        position: absolute;
+        bottom: 10%;
+        bottom: 0;
+    }
+    .svgActive .hearts1{
+        animation: 4s cubic-bezier(0.535, 0.15, 0.425, 1) heartAuto1 infinite;
+    }
+    .svgActive .hearts2{
+        animation: 5s cubic-bezier(0.535, 0.15, 0.425, 1) -1s heartAuto2 infinite;
+    }
+    .svgActive .hearts3{
+        animation: 6s cubic-bezier(0.535, 0.15, 0.425, 1) -2s heartAuto3 infinite;
+    }
+
+
+
+    
+
+    /* 金币 */
+    .svgActive2{
+       position: fixed;
+       bottom: 10%;
+       left: 40%;
+        
+    }
+    .svgActive2 img{
+        position: absolute;
+        bottom: 10%;
+        bottom: 0;
+    }
+    .svgActive2 .jinbi1{
+        animation: 3s cubic-bezier(0.535, 0.15, 0.425, 1) heartAuto1 infinite;
+    }
+    .svgActive2 .jinbi2{
+        animation: 4s cubic-bezier(0.535, 0.15, 0.425, 1) -1s heartAuto2 infinite;
+    }
+    .svgActive2 .jinbi3{
+        animation: 5s cubic-bezier(0.535, 0.15, 0.425, 1) -2s heartAuto3 infinite;
+    }
+    .svgActive2 .jinbi4{
+        animation: 5s cubic-bezier(0.535, 0.15, 0.425, 1) -2s heartAuto4 infinite;
+    }
+</style>
+<body>
+    <div class="svgActive">
+        <!-- 心形svg -->
+        <!-- <svg 
+        fill="none" 
+        height="22" 
+        viewBox="0 0 24 22"
+        width="24" 
+        xmlns="http://www.w3.org/2000/svg">
+            <path clip-rule="evenodd" 
+            d="m11.655 17.9159c.0002.0002.0004.0003.345-.6659.3446.6662.3448.6661.345.6659-.2161.1118-.4739.1118-.69 0zm0 0 .345-.6659.345.6659.0023-.0012.0054-.0028.0185-.0097c.0157-.0083.0381-.0202.0667-.0357.0573-.0309.1396-.0761.2433-.1348.2074-.1175.5011-.2897.8524-.5118.701-.4432 1.6392-1.0899 2.5811-1.9018 1.8407-1.5869 3.8853-3.9678 3.8853-6.8181 0-2.66421-2.0858-4.5-4.25-4.5-1.5474 0-2.9029.80151-3.75 2.01995-.8471-1.21844-2.20264-2.01995-3.75-2.01995-2.16421 0-4.25 1.83579-4.25 4.5 0 2.8503 2.04459 5.2312 3.8853 6.8181.94187.8119 1.88008 1.4586 2.5811 1.9018.3513.2221.645.3943.8524.5118.1037.0587.186.1039.2433.1348.0286.0155.051.0274.0667.0357l.0185.0097.0054.0028z" 
+            fill="rgb(234, 74, 170)"/>
+        </svg> -->
+        <img src="https://github.githubassets.com/images/modules/site/home/icons/heart.svg" style="width: 72px;height: 72px;" class="hearts1" alt="">
+        <img src="https://github.githubassets.com/images/modules/site/home/icons/heart.svg" style="width: 72px;height: 72px;" class="hearts2" alt="">
+        <img src="https://github.githubassets.com/images/modules/site/home/icons/heart.svg" style="width: 72px;height: 72px;" class="hearts3" alt="">
+    </div>
+    
+    <div class="svgActive2">
+        <img src="./svgImg/64-金币.svg" style="width: 72px;height: 72px;" class="jinbi1" alt="">
+        <img src="./svgImg/64-金币.svg" style="width: 72px;height: 72px;" class="jinbi2" alt="">
+        <img src="./svgImg/64-金币.svg" style="width: 72px;height: 72px;" class="jinbi3" alt="">
+        <img src="./svgImg/64-金币.svg" style="width: 72px;height: 72px;" class="jinbi4" alt="">
+    </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://www.jianguook.com/static/js/jquery-1.7.2.min.js"></script>
+</head>
+<style>
+    .main{
+        margin-top: 100px;
+        display: flex;
+        justify-content: space-around;
+    }
+    .listBox>div{
+        margin: 0 auto;
+        width: 600px;
+        height: 200px;
+        margin-bottom: 10px;
+        border: 1px solid red;
+        box-sizing: border-box;
+        position: relative; 
+    }
+    img{
+        width: 240px;
+        height: 160px;
+        vertical-align: middle;
+    }
+    .duibi{
+        vertical-align: middle;
+        margin-left: 20px;
+        cursor: pointer;
+    }
+    .room{
+        border: 1px solid burlywood;
+    }
+</style>
+<body>
+    <div class="main">
+        <div class="listBox">
+            <div class="box_1"><img class="listImg1" src="./images/user1.jpg" alt=""><span class="duibi" onclick="DuibiTest(1)">对比测试</span></div>
+            <div class="box_2"><img class="listImg2" src="./images/埃及卢克索古城.jpg" alt=""><span class="duibi" onclick="DuibiTest(2)" >对比测试</span></div>
+            <div class="box_3"><img class="listImg3" src="./images/bookstore.jpg" alt=""><span class="duibi"onclick="DuibiTest(3)" >对比测试</span></div>
+            <div class="box_4"><img class="listImg4"  src="./images/chanp.jpg" alt=""><span class="duibi"onclick="DuibiTest(4)" >对比测试</span></div>
+        </div>
+        <div class="rightBox">
+            <div class="room">项目对比</div>
+        </div>
+    </div>
+    
+</body>
+<script>
+    $(function(){
+        // 对比功能
+        // $('.duibi').click(function(){
+        //     let index = $(this).index()+1;
+        //     // let currImg= $(this).prev('img');
+        //     let top = $('.listImg'+index).offset().top;
+        //     let left = $('.listImg'+index).offset().left;
+        //     console.log(index,top,left,'飞入距离')
+        // })
+        
+        
+    })
+    function DuibiTest(index){
+            let top2 = $('.listImg'+index).offset().top;
+            let left2 =$('.listImg'+index).offset().left;
+            console.log(top2,left2,'imgben')
+            let widthnew =$('.listImg'+index).width();
+            let heightnew = $('.listImg'+index).height();
+            // 克隆
+            let newImg = $('.listImg'+index).clone().css({'opacity':0.7,'display':'inline-block'});
+            //设置属性
+            newImg.css({
+                'position':'absolute',
+                'z-index':999,
+                'top':0,
+                'left':0,
+                'width':widthnew,
+                'height':heightnew,
+            })
+            // 添加到富级标签 
+            $('.box_'+index).append(newImg);
+
+            let ftop = $('.rightBox').offset().top - top2; //因为新增元素用绝对定位了所以要减去他副件的offset值
+            let fleft = $('.rightBox').offset().left - left2;
+            console.log($('.rightBox').offset(),'rightBox')
+            newImg.animate({
+                'top':ftop,
+                'left':fleft,
+                'width':40,
+                'height':40
+            },'slow',function(){
+                $(this).animate({width:0,height:0})
+            })
+        }
+        
+</script>
+</html>
