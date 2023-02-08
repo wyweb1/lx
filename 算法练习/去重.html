@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>给重复的数组去重</title>
+    <script src="http://www.jianguook.com/static/js/jquery-1.7.2.min.js"></script>
+
+</head>
+<body>
+
+    
+</body>
+<script>
+    let arr=['a','b',true,true,'你好',1,2,3,1,'b'];
+    // 方法一：最先想到的笨办法 for indexof
+    function quchong1(arr){
+        let newarr= [];
+        for(let i=0;i<arr.length;i++){
+            let index=newarr.indexOf(arr[i]);
+            if(index==-1){
+                newarr.push(arr[i]);
+            }
+        }
+        return newarr;
+    }
+    
+    console.log(quchong1(arr,'方法一'));
+
+
+    // 方法二，from，set
+    function quchong2(arr){
+        // Array.from:es6方法，将类数组对象或者可遍历对象转换成真正的数组
+        // Array.from(arr,item=>item+1);对每个对象进行加一操作
+        //Array.from使用条件：类数组必须有length属性，如果没有转换成一个空数组；2.类数组对象里的键名必须为数字类型或者字符串型的数字；3.键名可以是属性或者不是属性
+        // new Set();es6新属性，新的数据结构，类似于数组但是成员都是唯一值，采用类似于“===”的运算符来判断成员是否相等
+
+        let set = new Set(arr);
+        console.log(set,'set');
+       return Array.from(set);
+       
+    }
+    console.log(quchong2(arr),'方法二')
+
+  
+    // 方法三：filter:性能好找到就返回不用每次都遍历到低；利用indexof返回第一个找到的值的index，不相等就代表不是第一个
+    function quhcong3(arr){
+    return arr.filter(function(item,index,arr){
+        return arr.indexOf(item) === index;
+
+            
+        })
+    }
+
+    console.log(quhcong3(arr),'方法三')
+
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://www.jianguook.com/static/js/jquery-1.7.2.min.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+    let p = new Promise(function(resolve,reject){
+        resolve('成功！')// 调用该方法，promise对象的状态由等待变为成功resolved，并调取then()的第一个参数方法，传的参数作为then函数中成功函数的实参
+        // reject('失败')// 调用该方法，promise状态由等待变为失败rejected，并调取then()的第二个参数方法，传的参数作为then函数中失败函数的实参；如果使用了catch那么then的第二个参数可以不写，catch
+        // catch可以实现错误的捕获 一般写在最后，如果上面有自己的err会走自己的error。如果没有写就会走到catch,2. 它的另一个作用是，当执行 resolve 的回调（也就是上面 then 中的第一个参数）时，如果抛出异常了（代码出错了），那么也不会报错卡死 js，而是会进到这个 catch 方法中。
+    });
+
+    let data2 = '测试';//无用
+
+    p.then((data) => {
+        console.log('成功'+data)
+    },(err)=>{
+        console.log('失败'+err)
+    })
+
+    //catch()方法：
+    p.then((data)=>{
+        console.log('成功哈哈')
+    }).catch((err)=>{
+        console.log(err+'catch报错')
+    })
+    
+</script>
+</html>
