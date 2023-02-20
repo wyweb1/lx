@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://www.jianguook.com/static/js/jquery-1.7.2.min.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+console.log(1)
+function twoSum (nums, target){
+    // 知识点主要用到了es6的Map数据结构：字典，一些元素的集合，每个元素都由唯一的key做键名
+
+    // map.has()在map对象里查找对应键名，有返回true，无返回false
+    // 现遍历一个，内层在遍历一个看有误 target-nums[i]=nums[j]的存在，存在就立马跳出函数并返回下标
+    let obj =new Map();
+    for(let i=0;i<nums.length;i++){ 
+
+        let currenNum = target - nums[i];
+
+        if(obj.has(currenNum)){
+            return console.log([obj.get(currenNum),i]);
+        }
+        obj.set(nums[i],i);
+  
+    }
+  
+    
+};
+let nums = [2,7,11,15];
+let target = 9;
+twoSum(nums,target);
+
+
+</script>
+</html>
