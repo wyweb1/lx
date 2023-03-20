@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+</head>
+<body>
+    <div id="box">
+        被包含的页面
+        <img src="./eeg.jpg" alt="">
+
+    </div>
+    
+</body>
+<script>
+    var b = window.top
+    console.log(b,'window.top')
+    // let fname = b.window.
+    window.parent.document.documentElementById('hhh').style.color='red';
+    
+</script>
+<style>
+    #box{
+        background: rgba(0,0,0,0.1);
+    }
+    img{
+        width: 100px;
+        height: 100px;
+    }
+</style>
+</html>

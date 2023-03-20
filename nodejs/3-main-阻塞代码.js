@@ -1,6 +1,6 @@
 
 // 阻塞代码实例
-var fs = require("fs");
+var fs = require("fs");//文件系统模块(fs)
 
 var data = fs.readFileSync('input.txt');//Sync同步；执行完当前操作才能进行下一个操作
 console.log(data.toString());
